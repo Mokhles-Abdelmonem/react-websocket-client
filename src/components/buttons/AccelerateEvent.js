@@ -7,7 +7,7 @@ export default function AccelerateEvent(websocket, eventId) {
     method: "update",
     kwargs: {
       "event_id": eventId,
-      "package": 10,
+      "package": 60,
     },
     body:{}
   }
@@ -19,7 +19,7 @@ export default function AccelerateEvent(websocket, eventId) {
       text="Accelerate Event"
       body={body}
       websocket={websocket}
-      color={'#ffcccb'}
+      color={'#8B0000'}
       />
   
     );

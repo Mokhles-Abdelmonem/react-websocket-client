@@ -41,7 +41,7 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
     <div>
       <List
         component="nav"
-        sx={{ bgcolor: '#87CEFA' }}
+        sx={{ bgcolor: '#4682B4' }}
       >
         <ListItem
           id="lock-button"

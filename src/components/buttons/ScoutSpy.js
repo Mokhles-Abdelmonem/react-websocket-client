@@ -8,7 +8,7 @@ export default function Spy(websocket) {
     method: "create",
     kwargs: {
       "attack_pos":[20, 40],
-      "other_id":"7599602824905487", 
+      "other_id":"1700646931812365505", 
       // "other_id":"8300183916898568", 
     },
     body:{}
@@ -21,7 +21,7 @@ export default function Spy(websocket) {
       text="Spy"
       body={body}
       websocket={websocket}
-      color={'#ADD8E6'}
+      color={'#001F3F'}
 
       />
         

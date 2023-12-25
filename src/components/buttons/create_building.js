@@ -37,7 +37,7 @@ export default function CreateBuilding(websocket, buildingType) {
       text="Create Building"
       body={body}
       websocket={websocket}
-      color={'#ADD8E6'}
+      color={'#001F3F'}
       />
 
    );

@@ -8,7 +8,7 @@ export default function TrainTroop(websocket, buildingType) {
     method: "update",
     kwargs: {
       "building_type": buildingType,
-      "soldier_type":"PeasantArcher",
+      "soldier_type":"ShadowRangers",
       "soldier_number":5,
     },
     body:{}
@@ -20,7 +20,7 @@ export default function TrainTroop(websocket, buildingType) {
       text="Train Troop"
       body={body}
       websocket={websocket}
-      color={'#ADD8E6'}
+      color={'#001F3F'}
       />
         
     );

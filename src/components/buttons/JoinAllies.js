@@ -6,7 +6,7 @@ export default function JoinAllies(websocket) {
     event: "join_allies",
     method: "update",
     kwargs: {
-      "allies_id":"1698653858807687764"
+      "allies_id":"1702798087309447954"
     },
     body:{}
   }

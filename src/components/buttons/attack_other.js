@@ -8,15 +8,15 @@ export default function Attack(websocket) {
     method: "create",
     kwargs: {
       "troops": {
-        "Spearman":100,
-        "PeasantArcher":100,
-        "Infantry":100,
-        "knight":100,
-        "Assassin":100,
+        "Bowman":800,
+        "Crossbowman":800,
+        "Artilleryman":800,
+        "Sharpshooter":800,
+        "BattleArcher":800,
       },
       "heroes": {},
       "attack_pos":[20, 40],
-      "other_id":"7599602824905487", 
+      "other_id":"1702970824292308012", 
       // "other_id":"8300183916898568", 
     },
     body:{}
@@ -29,7 +29,7 @@ export default function Attack(websocket) {
       text="attack castle"
       body={body}
       websocket={websocket}
-      color={'#ADD8E6'}
+      color={'#001F3F'}
 
       />
         

@@ -19,7 +19,7 @@ export default function UpgradeBuilding(websocket, buildingType, buildingId) {
       text="Upgrade Building"
       body={body}
       websocket={websocket}
-      color={'#ADD8E6'}
+      color={'#001F3F'}
       />
 
     );

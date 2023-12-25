@@ -6,6 +6,15 @@ import Login from './api/LoginUser';
 import ResponsiveDrawer from './components/Drawer';
 
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 let WS_URL = "";
 
 
@@ -27,11 +36,14 @@ websocket.onopen = (event) => {
   websocket.send(JSON.stringify(handshakeMessage));
 };
 
+websocket.onclose = function(e) {
+  console.log("Connection closed from App", e);
+};
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [buildingId, setBuildingId] = useState("1695649143884193565");
-  const [eventId, setEventId] = useState("123");
+  const [buildingId, setBuildingId] = useState("1703072398898613737");
+  const [eventId, setEventId] = useState("building_complete@create@1702471101051810368@1702551294.864431");
 
   websocket.onmessage = function (event) {
     const json = JSON.parse(event.data)
@@ -64,14 +76,17 @@ function App() {
   }, []);
  
   return (
-    <> 
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <main>This app is using the dark mode</main>
       <ResponsiveDrawer
         websocket={websocket}
         buildingId={buildingId}
         eventId={eventId}
         messages={messages}
       />
-    </>
+    </ThemeProvider>
+
   );
 }
 
