@@ -6,7 +6,7 @@ export default function GetCityData(websocket) {
     event: "city_data",
     method: "retrieve",
     kwargs: {
-      player_id:"1700646853940972135",
+      player_id:"1706784718919706931",
       // player_id:"8300183916898568"
 
     },

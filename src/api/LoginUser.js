@@ -1,6 +1,6 @@
 let API_URL = ""
-API_URL = "http://game.tawasolmap.com"
 API_URL = "http://localhost:8000"
+API_URL = "http://game.tawasolmap.com"
 
 
 export default async function Login(){

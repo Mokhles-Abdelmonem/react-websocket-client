@@ -18,8 +18,8 @@ const darkTheme = createTheme({
 let WS_URL = "";
 
 
-WS_URL = "ws://134.119.216.225:8090";
 WS_URL = "ws://localhost:8090";
+WS_URL = "ws://134.119.216.225:8090";
 
 const token = localStorage.getItem('token');
 // const device_id = localStorage.getItem('device_id');

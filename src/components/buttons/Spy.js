@@ -4,14 +4,13 @@ import OneButton from './one_button';
 export default function Spy(websocket) {
 
   const body = {
-    event: "spy_scout",
-    method: "create",
-    kwargs: {
-      "attack_pos":[20, 40],
-      "other_id":"1700646931812365505", 
-      // "other_id":"8300183916898568", 
+    "event": "spy_info",
+    "method": "create",
+    "kwargs": {
+      "target_pos":[20, 40],
+      "other_id": "1706784725993761623"
     },
-    body:{}
+    "body": {}
   }
     
     return (

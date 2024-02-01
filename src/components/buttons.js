@@ -21,15 +21,18 @@ import getLiveEvents from './buttons/getLiveEvents';
 import getReports from './buttons/getReports';
 import BuildingMenu from './BuildingMenu';
 import GetUsersAll from './buttons/getUsersAll';
-import Spy from './buttons/ScoutSpy';
+import Spy from './buttons/Spy';
 import GetCityData from './buttons/GetCity';
 import CloseButton from './buttons/CloseSocket';
+import Scout from './buttons/Scout';
+import AttackUltimates from './buttons/AttackUltimates';
+import getUltimates from './buttons/getUltimates';
 
 let buildingTypes = [
   "farm", "hq", "medical_camp", "lumber_mill", "constructor_builder", "house", "quarry", "ore_refinery",
   "power_station", "wall", "laboratory", "trading_post", "guild_hall", "bank", "prison", "warehouse",
   "workshop", "longshot_division", "barracks", "aero_command", "artillery_garage",
-  "garrisons_bunker", "alchemy", "healers_hedge"
+  "garrisons_bunker", "alchemy", "healers_hedge", "watch_tower"
 ]
 
 
@@ -87,6 +90,12 @@ function Buttons({websocket, buildingId, eventId}) {
       {getReports(websocket)}
       
       {Spy(websocket)}
+
+      {Scout(websocket)}
+
+      {AttackUltimates(websocket)}
+
+      {getUltimates(websocket)}
 
       {CloseButton(websocket)}
 

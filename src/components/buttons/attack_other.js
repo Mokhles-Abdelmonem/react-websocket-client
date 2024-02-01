@@ -8,15 +8,15 @@ export default function Attack(websocket) {
     method: "create",
     kwargs: {
       "troops": {
-        "Bowman":800,
+        "Pyromancer_1":21,
         "Crossbowman":800,
         "Artilleryman":800,
         "Sharpshooter":800,
         "BattleArcher":800,
       },
       "heroes": {},
-      "attack_pos":[20, 40],
-      "other_id":"1702970824292308012", 
+      "target_pos":[18, 68],
+      "other_id":"1706784725993761623", 
       // "other_id":"8300183916898568", 
     },
     body:{}

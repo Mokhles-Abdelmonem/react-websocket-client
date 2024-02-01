@@ -1,22 +1,26 @@
 import OneButton from './one_button';
 
-export default function RandomMigrate(websocket) {
+export default function getUltimates(websocket) {
 
   const body = {
-    event: "migrate_random",
-    method: "update",
+    event: "ultimates",
+    method: "list",
     kwargs: {},
     body:{}
   }
+  
 
+
+  
     return (
   
+      
       <OneButton
-      text="Random Migrate"
+      text="Get Ultimates All"
       body={body}
       websocket={websocket}
-      
       />
+
   
     );
 
