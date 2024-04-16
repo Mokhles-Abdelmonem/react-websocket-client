@@ -19,7 +19,7 @@ function ResponsiveDrawer(props) {
   const { 
     window , 
     websocket, 
-    buildingId, 
+    Index, 
     eventId ,
     messages
   } = props;
@@ -36,7 +36,7 @@ function ResponsiveDrawer(props) {
       <List>
           <Buttons
           websocket={websocket}
-          buildingId={buildingId}
+          Index={Index}
           eventId={eventId}
           />
       </List>

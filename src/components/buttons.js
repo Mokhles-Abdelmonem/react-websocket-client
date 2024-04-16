@@ -27,6 +27,10 @@ import CloseButton from './buttons/CloseSocket';
 import Scout from './buttons/Scout';
 import AttackUltimates from './buttons/AttackUltimates';
 import getUltimates from './buttons/getUltimates';
+import getResourceTiles from './buttons/getResourceTiles';
+import AttackResourceTiles from './buttons/AttackResourceTiles';
+import GetPlayer from './buttons/getPlayer';
+import UpdateUsername from './buttons/updateUsername';
 
 let buildingTypes = [
   "farm", "hq", "medical_camp", "lumber_mill", "constructor_builder", "house", "quarry", "ore_refinery",
@@ -36,7 +40,7 @@ let buildingTypes = [
 ]
 
 
-function Buttons({websocket, buildingId, eventId}) {
+function Buttons({websocket, Index, eventId}) {
   const [buildingType, setbuildingType] = useState(buildingTypes[0]);
 
 
@@ -49,20 +53,24 @@ function Buttons({websocket, buildingId, eventId}) {
 
       {CreateBuilding(websocket, buildingType)}
       
-      {UpgradeBuilding(websocket, buildingType, buildingId)}
+      {UpgradeBuilding(websocket, buildingType, Index)}
 
-      {UpdateBuildingPosition(websocket, buildingType, buildingId)}
+      {UpdateBuildingPosition(websocket, buildingType, Index)}
 
       {AccelerateEvent(websocket, eventId)}
 
-      {CollectOneFarm(websocket, buildingType, buildingId)}
+      {CollectOneFarm(websocket, buildingType, Index)}
 
-      {DeleteBuiding(websocket, buildingType, buildingId)}
+      {DeleteBuiding(websocket, buildingType, Index)}
 
-      {TrainTroop(websocket, buildingType, buildingId)}
+      {TrainTroop(websocket, buildingType, Index)}
 
       {Attack(websocket)}
 
+      {GetPlayer(websocket)}
+
+      {UpdateUsername(websocket)}
+      
       {GetUsersRegion(websocket)}
 
       {GetUsersAll(websocket)}
@@ -95,7 +103,11 @@ function Buttons({websocket, buildingId, eventId}) {
 
       {AttackUltimates(websocket)}
 
+      {AttackResourceTiles(websocket)}
+
       {getUltimates(websocket)}
+
+      {getResourceTiles(websocket)}
 
       {CloseButton(websocket)}
 

@@ -1,14 +1,14 @@
 import OneButton from './one_button';
 
 
-export default function CollectOneFarm(websocket, buildingType, buildingId) {
+export default function CollectOneFarm(websocket, buildingType, Index) {
 
   const body = {
     method: "update",
     event: "collect",
     kwargs: {
       "building_type":buildingType,
-      "building_id":buildingId
+      "index":Index
     }, 
     body:{}
   }

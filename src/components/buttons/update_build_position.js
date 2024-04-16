@@ -1,14 +1,14 @@
 import OneButton from './one_button';
 
 
-export default function UpdateBuildingPosition(websocket, buildingType, buildingId) {
+export default function UpdateBuildingPosition(websocket, buildingType, Index) {
 //   Here is the last thing to test 
   const body = {
     event: "building_position",
     method: "update",
     kwargs: {
       "building_type":buildingType,
-      "building_id": buildingId
+      "index": Index
     },
     body: {
       "x":555,

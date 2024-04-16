@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Login from './api/LoginUser';
 
 import ResponsiveDrawer from './components/Drawer';
 
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import GetDeviceID from './api/LoginUser';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,19 +18,29 @@ const darkTheme = createTheme({
 let WS_URL = "";
 
 
+WS_URL = "ws://134.119.216.225:9090";
 WS_URL = "ws://localhost:8090";
-WS_URL = "ws://134.119.216.225:8090";
 
-const token = localStorage.getItem('token');
-// const device_id = localStorage.getItem('device_id');
-// if (device_id === "string") {
-//   WS_URL = "ws://localhost:8060";
-// }
 const websocket = new WebSocket(WS_URL);
 
-const handshakeMessage = 
-{
-  'token': token
+
+let device_id = localStorage.getItem('device_id');
+
+if (device_id === null | device_id === undefined | device_id === "null") {
+  console.log("device_id is ", device_id);
+  console.log("device_id >>>>>>>>>> ", device_id)
+  device_id = prompt("inter device_id")
+  localStorage.setItem("device_id", device_id);
+
+}
+
+
+const handshakeMessage = {
+  event: "session",
+  method: "create",
+  kwargs: {
+    "device_id": device_id
+  }
 }
 websocket.onopen = (event) => {
   websocket.send(JSON.stringify(handshakeMessage));
@@ -42,8 +52,8 @@ websocket.onclose = function(e) {
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [buildingId, setBuildingId] = useState("1703072398898613737");
-  const [eventId, setEventId] = useState("building_complete@create@1702471101051810368@1702551294.864431");
+  const [Index, setBuildingIndex] = useState(1);
+  const [eventId, setEventId] = useState("a1f09ea2-1937-48f9-b45e-a9b516635a79");
 
   websocket.onmessage = function (event) {
     const json = JSON.parse(event.data)
@@ -57,12 +67,11 @@ function App() {
       }else{
         setMessages((prevMessages) => [...prevMessages, json]);
         if (json.param.event_name === 'create_building'){
-          if (json.param.building_id !== "None") 
-          setBuildingId(json.param.building_id)
+          setBuildingIndex(json.param.index)
         }
         if (json.param.event_id !== undefined && json.param.event_id !== null){
           setEventId(json.param.event_id)
-          console.log("json.param.event_id  >>>> ", json.param.event_id)
+          console.log("json.param.event_id: ", json.param.event_id)
         }
       }
     } catch (err) {
@@ -71,17 +80,13 @@ function App() {
   };
 
 
-  useEffect(() => {
-    Login()
-  }, []);
- 
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <main>This app is using the dark mode</main>
       <ResponsiveDrawer
         websocket={websocket}
-        buildingId={buildingId}
+        Index={Index}
         eventId={eventId}
         messages={messages}
       />

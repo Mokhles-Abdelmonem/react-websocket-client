@@ -8,7 +8,7 @@ export default function TrainTroop(websocket, buildingType) {
     method: "update",
     kwargs: {
       "building_type": buildingType,
-      "soldier_type":"ShadowRangers",
+      "soldier_type":"Bowman",
       "soldier_number":5,
     },
     body:{}

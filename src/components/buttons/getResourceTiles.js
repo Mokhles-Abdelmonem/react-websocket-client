@@ -1,9 +1,9 @@
 import OneButton from './one_button';
 
-export default function GetUsersRegion(websocket) {
+export default function getResourceTiles(websocket) {
 
   const body = {
-    event: "user_region",
+    event: "resource_tiles",
     method: "list",
     kwargs: {"center_point":[23, 24]},
     body:{}
@@ -16,7 +16,7 @@ export default function GetUsersRegion(websocket) {
   
       
       <OneButton
-      text="Get Players region"
+      text="Get ResourceTiles"
       body={body}
       websocket={websocket}
       />

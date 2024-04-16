@@ -1,12 +1,12 @@
 import OneButton from './one_button';
 
-export default function getUltimates(websocket) {
+export default function GetPlayer(websocket) {
 
   const body = {
-    event: "ultimates",
-    method: "list",
-    kwargs: {"center_point":[23, 24]},
-    body:{}
+    "event": "user",
+    "method": "retrieve",
+    "kwargs": {},
+    "body": {}
   }
   
 
@@ -16,7 +16,7 @@ export default function getUltimates(websocket) {
   
       
       <OneButton
-      text="Get Ultimates All"
+      text="Get Player"
       body={body}
       websocket={websocket}
       />

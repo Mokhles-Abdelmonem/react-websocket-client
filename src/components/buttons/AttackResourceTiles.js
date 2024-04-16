@@ -1,14 +1,17 @@
 
 import OneButton from './one_button';
 
-export default function Spy(websocket) {
+export default function AttackResourceTiles(websocket) {
 
   const body = {
-    "event": "spy_info",
+    "event": "attack_resource_tile",
     "method": "create",
     "kwargs": {
-      "target_pos":[20, 40],
-      "other_id": "123"
+      "target_pos":[18, 68],
+      "troops": {
+        "Bowman":800
+      },
+      "heroes": {},
     },
     "body": {}
   }
@@ -17,7 +20,7 @@ export default function Spy(websocket) {
   
       
       <OneButton
-      text="Spy"
+      text="Attack ResourceTiles"
       body={body}
       websocket={websocket}
       color={'#001F3F'}
