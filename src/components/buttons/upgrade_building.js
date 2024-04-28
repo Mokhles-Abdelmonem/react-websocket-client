@@ -1,12 +1,12 @@
 import OneButton from './one_button';
-export default function UpgradeBuilding(websocket, buildingType, Index) {
+export default function UpgradeBuilding(websocket, buildingType, Key) {
 
   const body = {
     method: "update",
     event: "building",
     kwargs: {
       "building_type":buildingType,
-      "index":Index
+      "key":Key
     },
     body:{}
   }

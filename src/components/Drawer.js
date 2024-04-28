@@ -19,7 +19,7 @@ function ResponsiveDrawer(props) {
   const { 
     window , 
     websocket, 
-    Index, 
+    Key, 
     eventId ,
     messages
   } = props;
@@ -36,7 +36,7 @@ function ResponsiveDrawer(props) {
       <List>
           <Buttons
           websocket={websocket}
-          Index={Index}
+          Key={Key}
           eventId={eventId}
           />
       </List>
@@ -111,8 +111,8 @@ function ResponsiveDrawer(props) {
         <Typography paragraph>
             {
             messages.map(
-              (message, index) => (
-              <pre key={index} >{JSON.stringify(message, null, 2)}</pre>
+              (message, Key) => (
+              <pre key={Key} >{JSON.stringify(message, null, 2)}</pre>
               )
               )
             }

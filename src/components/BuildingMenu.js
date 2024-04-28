@@ -8,15 +8,15 @@ import Typography from '@mui/material/Typography';
 
 export default function BuildingMenu({buildingTypes, setbuildingType}) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedKey, setSelectedKey] = useState("0");
   const open = Boolean(anchorEl);
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    localStorage.setItem("CurrentBuildingTypes", buildingTypes[index]);
+  const handleMenuItemClick = (event, Key) => {
+    setSelectedKey(Key);
+    localStorage.setItem("CurrentBuildingTypes", buildingTypes[Key]);
     setAnchorEl(null);
   };
 
@@ -32,7 +32,7 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
       CurrentBuildingTypes = buildingTypes[0]
     }
     setbuildingType(CurrentBuildingTypes);
-    setSelectedIndex(buildingTypes.indexOf(CurrentBuildingTypes));
+    setSelectedKey(buildingTypes.indexOf(CurrentBuildingTypes));
 
   });
 
@@ -52,7 +52,7 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
           sx={{textAlign: 'center'}}
           >
             <Typography variant="h6" noWrap component="div">
-              {buildingTypes[selectedIndex]}
+              {buildingTypes[selectedKey]}
             </Typography>
           </ListItemText>
         </ListItem>
@@ -67,11 +67,11 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
           role: 'listbox',
         }}
       >
-        {buildingTypes.map((option, index) => (
+        {buildingTypes.map((option, Key) => (
           <MenuItem
             key={option}
-            selected={index === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, index)}
+            selected={Key === selectedKey}
+            onClick={(event) => handleMenuItemClick(event, Key)}
           >
             {option}
           </MenuItem>

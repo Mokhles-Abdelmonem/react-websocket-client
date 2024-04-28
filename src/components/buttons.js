@@ -40,7 +40,7 @@ let buildingTypes = [
 ]
 
 
-function Buttons({websocket, Index, eventId}) {
+function Buttons({websocket, Key, eventId}) {
   const [buildingType, setbuildingType] = useState(buildingTypes[0]);
 
 
@@ -53,17 +53,17 @@ function Buttons({websocket, Index, eventId}) {
 
       {CreateBuilding(websocket, buildingType)}
       
-      {UpgradeBuilding(websocket, buildingType, Index)}
+      {UpgradeBuilding(websocket, buildingType, Key)}
 
-      {UpdateBuildingPosition(websocket, buildingType, Index)}
+      {UpdateBuildingPosition(websocket, buildingType, Key)}
 
       {AccelerateEvent(websocket, eventId)}
 
-      {CollectOneFarm(websocket, buildingType, Index)}
+      {CollectOneFarm(websocket, buildingType, Key)}
 
-      {DeleteBuiding(websocket, buildingType, Index)}
+      {DeleteBuiding(websocket, buildingType, Key)}
 
-      {TrainTroop(websocket, buildingType, Index)}
+      {TrainTroop(websocket, buildingType, Key)}
 
       {Attack(websocket)}
 

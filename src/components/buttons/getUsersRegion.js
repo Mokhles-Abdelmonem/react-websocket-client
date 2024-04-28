@@ -5,7 +5,7 @@ export default function GetUsersRegion(websocket) {
   const body = {
     event: "user_region",
     method: "list",
-    kwargs: {"center_point":[23, 24]},
+    kwargs: {"center_point":[20, 40]},
     body:{}
   }
   

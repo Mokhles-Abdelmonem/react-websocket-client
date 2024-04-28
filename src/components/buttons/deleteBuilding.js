@@ -1,10 +1,10 @@
 
 import OneButton from './one_button';
 
-export default function DeleteBuiding(websocket, buildingType, Index) {
+export default function DeleteBuiding(websocket, buildingType, Key) {
   let data = {
     "building_type":buildingType,
-    "index": Index
+    "key": Key
   }
 
   const body = {

@@ -7,9 +7,9 @@ export default function AttackUltimates(websocket) {
     "event": "attack_ultimates",
     "method": "create",
     "kwargs": {
-      "target_pos":[18, 68],
+      "target_pos":[25, 25],
       "troops": {
-        "Bowman":800
+        "Bowman":100
       },
       "heroes": {},
     },
