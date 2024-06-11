@@ -14,7 +14,7 @@ import JoinAllies from './buttons/JoinAllies';
 import migratePlayer from './buttons/migratePlayer';
 import RandomMigrate from './buttons/RandomMigrate';
 import LeaveAllies from './buttons/LeaveAllies';
-import GeneralChat from './buttons/Chat';
+import Chat from './buttons/Chat';
 import AccelerateEvent from './buttons/AccelerateEvent';
 import getDispatches from './buttons/getDespatches';
 import getLiveEvents from './buttons/getLiveEvents';
@@ -31,6 +31,9 @@ import getResourceTiles from './buttons/getResourceTiles';
 import AttackResourceTiles from './buttons/AttackResourceTiles';
 import GetPlayer from './buttons/getPlayer';
 import UpdateUsername from './buttons/updateUsername';
+import MessageList from './buttons/MessageList';
+import SubscribeMap from './buttons/SubscribeMap';
+import UnSubscribeMap from './buttons/UnSubscribeMap';
 
 let buildingTypes = [
   "farm", "hq", "medical_camp", "lumber_mill", "constructor_builder", "house", "quarry", "ore_refinery",
@@ -85,11 +88,17 @@ function Buttons({websocket, Key, eventId}) {
 
       {LeaveAllies(websocket)}
 
+      {SubscribeMap(websocket)}
+
+      {UnSubscribeMap(websocket)}
+
       {migratePlayer(websocket)}
 
       {RandomMigrate(websocket)}
 
-      {GeneralChat(websocket)}
+      {Chat(websocket)}
+
+      {MessageList(websocket)}
 
       {getDispatches(websocket)}
 

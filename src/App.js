@@ -59,12 +59,12 @@ function App() {
     console.log("comming event", json);
     try {
       if ("error" in json) {
-        setMessages((prevMessages) => [...prevMessages, json.error]);
+        setMessages((prevMessages) => [json.error, ...prevMessages]);
       }
       else if ("body" in json){
-        setMessages((prevMessages) => [...prevMessages, json.body.message]);
+        setMessages((prevMessages) => [json.body.message, ...prevMessages]);
       }else{
-        setMessages((prevMessages) => [...prevMessages, json]);
+        setMessages((prevMessages) => [json, ...prevMessages]);
         if (json.param.event_name === 'create_building'){
           setBuildingKey(json.param.Key)
         }

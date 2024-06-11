@@ -5,7 +5,7 @@ export default function getUltimates(websocket) {
   const body = {
     event: "ultimates",
     method: "list",
-    kwargs: {"center_point":[23, 24]},
+    kwargs: {"center_point":[50, 50]},
     body:{}
   }
   
@@ -16,7 +16,7 @@ export default function getUltimates(websocket) {
   
       
       <OneButton
-      text="Get Ultimates All"
+      text="Get Ultimates"
       body={body}
       websocket={websocket}
       />

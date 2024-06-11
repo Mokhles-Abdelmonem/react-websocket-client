@@ -1,12 +1,12 @@
 import OneButton from './one_button';
 
-export default function Chat(websocket) {
+export default function MessageList(websocket) {
 
   const body = {
     event: "message",
-    method: "create",
+    method: "list",
     kwargs: {
-      consumer:"kingdom" // ["kingdom", "alliance", "4558819746088874"]
+      consumer:"alliance" // ["kingdom", "alliance", "4558819746088874"]
     },
     body:{
       "message":"Hello there my name is Mokhles .",
@@ -16,7 +16,7 @@ export default function Chat(websocket) {
     return (
   
       <OneButton
-      text="send message"
+      text="Get message"
       body={body}
       websocket={websocket}
       />
