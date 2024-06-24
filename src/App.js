@@ -66,7 +66,7 @@ function App() {
       }else{
         setMessages((prevMessages) => [json, ...prevMessages]);
         if (json.param.event_name === 'create_building'){
-          setBuildingKey(json.param.Key)
+          setBuildingKey(json.param.key)
         }
         if (json.param.event_id !== undefined && json.param.event_id !== null){
           setEventId(json.param.event_id)

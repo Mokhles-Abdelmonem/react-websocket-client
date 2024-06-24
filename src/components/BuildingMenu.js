@@ -26,7 +26,7 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
 
   useEffect(() => {
     let CurrentBuildingTypes = localStorage.getItem("CurrentBuildingTypes")
-    if (CurrentBuildingTypes === null) {
+    if (CurrentBuildingTypes === null || CurrentBuildingTypes === undefined) {
 
       localStorage.setItem("CurrentBuildingTypes", buildingTypes[0])
       CurrentBuildingTypes = buildingTypes[0]
