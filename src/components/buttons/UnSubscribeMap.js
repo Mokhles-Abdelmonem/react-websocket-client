@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function UnSubscribeMap(websocket) {
 
@@ -13,7 +13,7 @@ export default function UnSubscribeMap(websocket) {
 
     return (
 
-      <OneButton
+      <DrawerButton
       text="UnSubscribe Map"
       body={body}
       websocket={websocket}

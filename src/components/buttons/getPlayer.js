@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function GetPlayer(websocket) {
 
@@ -15,7 +15,7 @@ export default function GetPlayer(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Get Player"
       body={body}
       websocket={websocket}

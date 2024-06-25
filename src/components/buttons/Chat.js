@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function Chat(websocket) {
 
@@ -15,7 +15,7 @@ export default function Chat(websocket) {
 
     return (
   
-      <OneButton
+      <DrawerButton
       text="send message"
       body={body}
       websocket={websocket}

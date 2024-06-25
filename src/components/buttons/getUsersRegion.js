@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function GetUsersRegion(websocket) {
 
@@ -15,7 +15,7 @@ export default function GetUsersRegion(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Get Players region"
       body={body}
       websocket={websocket}

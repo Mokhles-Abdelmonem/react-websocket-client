@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function Spy(websocket) {
 
@@ -16,7 +16,7 @@ export default function Spy(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Spy"
       body={body}
       websocket={websocket}

@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function Scout(websocket) {
 
@@ -15,7 +15,7 @@ export default function Scout(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Scout Area"
       body={body}
       websocket={websocket}

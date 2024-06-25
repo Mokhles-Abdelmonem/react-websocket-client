@@ -43,7 +43,7 @@ let buildingTypes = [
 ]
 
 
-function Buttons({websocket, Key, eventId}) {
+function SocketEvents({websocket, Key, eventId}) {
   const [buildingType, setbuildingType] = useState(buildingTypes[0]);
 
 
@@ -53,22 +53,12 @@ function Buttons({websocket, Key, eventId}) {
       buildingTypes={buildingTypes}
       setbuildingType={setbuildingType}
       />
-
-      {CreateBuilding(websocket, buildingType)}
       
-      {UpgradeBuilding(websocket, buildingType, Key)}
-
       {UpdateBuildingPosition(websocket, buildingType, Key)}
-
-      {AccelerateEvent(websocket, eventId)}
 
       {CollectOneFarm(websocket, buildingType, Key)}
 
       {DeleteBuiding(websocket, buildingType, Key)}
-
-      {TrainTroop(websocket, buildingType, Key)}
-
-      {Attack(websocket)}
 
       {GetPlayer(websocket)}
 
@@ -106,14 +96,6 @@ function Buttons({websocket, Key, eventId}) {
 
       {getReports(websocket)}
       
-      {Spy(websocket)}
-
-      {Scout(websocket)}
-
-      {AttackUltimates(websocket)}
-
-      {AttackResourceTiles(websocket)}
-
       {getUltimates(websocket)}
 
       {getResourceTiles(websocket)}
@@ -124,4 +106,4 @@ function Buttons({websocket, Key, eventId}) {
   );
 }
 
-export default Buttons;
+export default SocketEvents;

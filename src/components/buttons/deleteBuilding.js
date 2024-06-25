@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function DeleteBuiding(websocket, buildingType, Key) {
   let data = {
@@ -17,7 +17,7 @@ export default function DeleteBuiding(websocket, buildingType, Key) {
     return (
 
         
-      <OneButton
+      <DrawerButton
       text="Delete Building"
       body={body}
       websocket={websocket}

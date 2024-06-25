@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function getDispatches(websocket) {
 
@@ -11,7 +11,7 @@ export default function getDispatches(websocket) {
 
     return (
   
-      <OneButton
+      <DrawerButton
       text="Get Dispatches"
       body={body}
       websocket={websocket}

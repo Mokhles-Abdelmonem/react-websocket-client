@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 export default function UpgradeBuilding(websocket, buildingType, Key) {
 
   const body = {
@@ -15,7 +15,7 @@ export default function UpgradeBuilding(websocket, buildingType, Key) {
   
     return (
   
-      <OneButton
+      <DrawerButton
       text="Upgrade Building"
       body={body}
       websocket={websocket}

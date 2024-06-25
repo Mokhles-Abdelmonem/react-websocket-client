@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 
 export default function UpdateBuildingPosition(websocket, buildingType, Key) {
@@ -19,7 +19,7 @@ export default function UpdateBuildingPosition(websocket, buildingType, Key) {
 
     return (
   
-      <OneButton
+      <DrawerButton
       text="Update Position"
       body={body}
       websocket={websocket}

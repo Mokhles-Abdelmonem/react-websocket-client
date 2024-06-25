@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function GetUsersAll(websocket) {
 
@@ -15,7 +15,7 @@ export default function GetUsersAll(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Get Players All"
       body={body}
       websocket={websocket}

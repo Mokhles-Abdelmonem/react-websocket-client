@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 
 export default function TrainTroop(websocket, buildingType) {
@@ -8,7 +8,7 @@ export default function TrainTroop(websocket, buildingType) {
     method: "update",
     kwargs: {
       "building_type": buildingType,
-      "soldier_type":"Bowman",
+      "soldier_type":"DeltaStrikerUnit",
       "soldier_number":5,
     },
     body:{}
@@ -16,7 +16,7 @@ export default function TrainTroop(websocket, buildingType) {
 
     return (
 
-      <OneButton
+      <DrawerButton
       text="Train Troop"
       body={body}
       websocket={websocket}

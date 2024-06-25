@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function Attack(websocket) {
 
@@ -8,16 +8,7 @@ export default function Attack(websocket) {
     method: "create",
     kwargs: {
       "troops": {
-        "Bowman": 200,
-        "Crossbowman": 200,
-        "Artilleryman": 200,
-        "Sharpshooter": 200,
-        "BattleArcher": 200,
-        "PrecisionRifelman": 200,
-        "Hawkeye": 200,
-        "LongRangeSniper": 200,
-        "HeavyGunner": 200,
-        "VanguardMarksman": 200
+        "DeltaStrikerUnit": 2
       },
       "heroes": {},
       "target_pos":[20, 40],
@@ -30,7 +21,7 @@ export default function Attack(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="attack castle"
       body={body}
       websocket={websocket}

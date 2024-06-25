@@ -39,14 +39,11 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
 
   return (
     <div>
-      <List
-        component="nav"
-        sx={{ bgcolor: '#4682B4' }}
-      >
         <ListItem
           id="lock-button"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
+          sx={{ bgcolor: '#4682B4' , height: '70px'}}
         >
           <ListItemText
           sx={{textAlign: 'center'}}
@@ -56,27 +53,26 @@ export default function BuildingMenu({buildingTypes, setbuildingType}) {
             </Typography>
           </ListItemText>
         </ListItem>
-      </List>
-      <Menu
-        id="lock-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'lock-button',
-          role: 'listbox',
-        }}
-      >
-        {buildingTypes.map((option, Key) => (
-          <MenuItem
-            key={option}
-            selected={Key === selectedKey}
-            onClick={(event) => handleMenuItemClick(event, Key)}
-          >
-            {option}
-          </MenuItem>
-        ))}
-      </Menu>
+        <Menu
+          id="lock-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'lock-button',
+            role: 'listbox',
+          }}
+        >
+          {buildingTypes.map((option, Key) => (
+            <MenuItem
+              key={option}
+              selected={Key === selectedKey}
+              onClick={(event) => handleMenuItemClick(event, Key)}
+            >
+              {option}
+            </MenuItem>
+          ))}
+        </Menu>
     </div>
   );
 }

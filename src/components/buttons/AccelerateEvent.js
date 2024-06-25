@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function AccelerateEvent(websocket, eventId) {
 
@@ -15,7 +15,7 @@ export default function AccelerateEvent(websocket, eventId) {
   
     return (
   
-      <OneButton
+      <DrawerButton
       text="Accelerate Event"
       body={body}
       websocket={websocket}

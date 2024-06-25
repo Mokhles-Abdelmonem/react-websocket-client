@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 
 export default function CollectOneFarm(websocket, buildingType, Key) {
@@ -15,7 +15,7 @@ export default function CollectOneFarm(websocket, buildingType, Key) {
 
     return (
 
-      <OneButton
+      <DrawerButton
       text="Collect"
       body={body}
       websocket={websocket}

@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function AttackUltimates(websocket) {
 
@@ -19,7 +19,7 @@ export default function AttackUltimates(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Attack Ultimates"
       body={body}
       websocket={websocket}

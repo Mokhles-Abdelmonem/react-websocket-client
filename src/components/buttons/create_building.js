@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 export default function CreateBuilding(websocket, buildingType) {
 
    let buildingBody = {
@@ -33,7 +33,7 @@ export default function CreateBuilding(websocket, buildingType) {
 
    return (
    
-      <OneButton
+      <DrawerButton
       text="Create Building"
       body={body}
       websocket={websocket}

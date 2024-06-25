@@ -11,7 +11,7 @@ import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Buttons from './buttons';
+import Buttons from './SocketEvents';
 
 const drawerWidth = 240;
 

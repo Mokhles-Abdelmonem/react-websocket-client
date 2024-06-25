@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function UpdateUsername(websocket) {
 
@@ -16,7 +16,7 @@ export default function UpdateUsername(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="update username"
       body={body}
       websocket={websocket}

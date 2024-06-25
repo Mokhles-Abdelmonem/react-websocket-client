@@ -3,7 +3,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 
 
@@ -22,7 +22,7 @@ export default function CloseSocket(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Close"
       body={body}
       websocket={websocket}

@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function migratePlayer(websocket) {
 
@@ -17,7 +17,7 @@ export default function migratePlayer(websocket) {
 
     return (
   
-      <OneButton
+      <DrawerButton
       text="Super Migrate"
       body={body}
       websocket={websocket}

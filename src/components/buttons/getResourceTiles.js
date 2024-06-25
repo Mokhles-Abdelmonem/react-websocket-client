@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function getResourceTiles(websocket) {
 
@@ -15,7 +15,7 @@ export default function getResourceTiles(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Get ResourceTiles"
       body={body}
       websocket={websocket}

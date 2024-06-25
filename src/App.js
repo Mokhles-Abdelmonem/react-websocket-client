@@ -1,13 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import './App.css';
-
 import ResponsiveDrawer from './components/Drawer';
-
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import GetDeviceID from './api/LoginUser';
+import SessionModal from './components/modals/Session';
+import PersistentDrawerLeft from './components/Drawer2';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,36 +16,11 @@ const darkTheme = createTheme({
 let WS_URL = "";
 
 
-WS_URL = "ws://localhost:8090";
 WS_URL = "ws://134.119.216.225:8090";
+WS_URL = "ws://localhost:8090";
 
 const websocket = new WebSocket(WS_URL);
 
-
-let device_id = localStorage.getItem('device_id');
-
-if (device_id === null | device_id === undefined | device_id === "null") {
-  console.log("device_id is ", device_id);
-  device_id = prompt("inter device_id")
-  localStorage.setItem("device_id", device_id);
-
-}
-
-
-const handshakeMessage = {
-  event: "session",
-  method: "create",
-  kwargs: {
-    "device_id": device_id
-  }
-}
-websocket.onopen = (event) => {
-  websocket.send(JSON.stringify(handshakeMessage));
-};
-
-websocket.onclose = function(e) {
-  console.log("Connection closed from App", e);
-};
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -83,7 +56,10 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <main>This app is using the dark mode</main>
-      <ResponsiveDrawer
+      <SessionModal
+        websocket={websocket}
+      />
+      <PersistentDrawerLeft
         websocket={websocket}
         Key={Key}
         eventId={eventId}

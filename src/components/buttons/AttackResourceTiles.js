@@ -1,5 +1,5 @@
 
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function AttackResourceTiles(websocket) {
 
@@ -19,7 +19,7 @@ export default function AttackResourceTiles(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Attack ResourceTiles"
       body={body}
       websocket={websocket}

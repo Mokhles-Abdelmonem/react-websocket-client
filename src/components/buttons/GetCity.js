@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function GetCityData(websocket) {
 
@@ -19,7 +19,7 @@ export default function GetCityData(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Get City Data"
       body={body}
       websocket={websocket}

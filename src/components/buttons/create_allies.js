@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function CreateAllies(websocket) {
 
@@ -16,7 +16,7 @@ export default function CreateAllies(websocket) {
     return (
   
       
-      <OneButton
+      <DrawerButton
       text="Create Allies"
       body={body}
       websocket={websocket}

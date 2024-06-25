@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function SubscribeMap(websocket) {
 
@@ -13,7 +13,7 @@ export default function SubscribeMap(websocket) {
 
     return (
 
-      <OneButton
+      <DrawerButton
       text="Subscribe Map"
       body={body}
       websocket={websocket}

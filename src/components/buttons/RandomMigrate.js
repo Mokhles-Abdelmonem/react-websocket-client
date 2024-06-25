@@ -1,4 +1,4 @@
-import OneButton from './one_button';
+import DrawerButton from './one_button';
 
 export default function RandomMigrate(websocket) {
 
@@ -11,7 +11,7 @@ export default function RandomMigrate(websocket) {
 
     return (
   
-      <OneButton
+      <DrawerButton
       text="Random Migrate"
       body={body}
       websocket={websocket}
