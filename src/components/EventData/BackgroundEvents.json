@@ -7,9 +7,9 @@
     },
     "body": {
       "world_position":{
-         "x":550,
-         "y":550,
-         "z":550
+         "x":1,
+         "y":1,
+         "z":1
       },
       "local_scale":{
          "x":1,

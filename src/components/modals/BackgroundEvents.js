@@ -2,8 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -26,9 +24,9 @@ const style = {
 };
 
 
-export default function BackgroundModal({websocket, text}) {
+export default function BackgroundModal({websocket, text, body}) {
   const [open, setOpen] = React.useState(false);
-  const [eventBody, seteventBody] = React.useState({});
+  const [eventBody, seteventBody] = React.useState(body);
 
   const handleOpen = () => {
     setOpen(true);
@@ -42,17 +40,33 @@ export default function BackgroundModal({websocket, text}) {
     setOpen(false);
   };
 
+  function defaultForm(eventBody, seteventBody) {
+    return(
+      <>
+      </>
+    )
+  }
 
   function GetModalForm() {
-    let Form = EventForms[text]
-    console.log("<<<<<<<<<<<<<<<<< text >>>>>>>>>>>>>>>>>")
-    console.log(text)
+    text.replace(/ /g, '');
+    let Form = EventForms[text] ?? defaultForm;
     return(
-      <Stack direction="row" spacing={1}>
-      <Button variant="contained" color="success" onClick={handleClick}>
-          Send
-      </Button> 
-      </Stack>
+      <>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+        {Form(eventBody, seteventBody)}
+
+        </Box>
+        <Button variant="contained" color="success" onClick={handleClick}>
+              Send
+        </Button> 
+      </>
     )
   }
   
