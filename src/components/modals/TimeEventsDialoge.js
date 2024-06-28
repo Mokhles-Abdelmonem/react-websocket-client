@@ -10,7 +10,7 @@ import { Box } from '@mui/material';
 
 
 
-export default function FormDialog({websocket, text, body, open, setOpen, Form}) {
+export default function FormDialog({websocket, text, body, open, setOpen, Form,  buildings, setBuildings}) {
   const [eventBody, seteventBody] = React.useState(body);
   const handleClose = () => {
     setOpen(false);
@@ -29,7 +29,7 @@ export default function FormDialog({websocket, text, body, open, setOpen, Form})
           noValidate
           autoComplete="off"
         >
-          {Form(eventBody, seteventBody)}
+          {Form(eventBody, seteventBody, buildings, setBuildings)}
         </Box>
       </>
     )
@@ -46,6 +46,7 @@ export default function FormDialog({websocket, text, body, open, setOpen, Form})
             const formData = new FormData(event.currentTarget);
             const formJson = Object.fromEntries(formData.entries());
             console.log(formJson);
+            console.log("event sent > ", eventBody)
             websocket.send(JSON.stringify(eventBody));
             handleClose();
           },

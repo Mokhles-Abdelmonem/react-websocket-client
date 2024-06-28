@@ -68,7 +68,9 @@ export default function PersistentDrawerLeft(props) {
     websocket, 
     Key, 
     eventId ,
-    messages
+    messages,
+    buildings, 
+    setBuildings
   } = props;
 
   const theme = useTheme();
@@ -122,6 +124,8 @@ export default function PersistentDrawerLeft(props) {
         <List>
           <BackgroundEvents
           websocket={websocket}
+          buildings={buildings}
+          setBuildings={setBuildings}
           />
         </List>
 

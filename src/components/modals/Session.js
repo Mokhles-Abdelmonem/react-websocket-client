@@ -41,6 +41,14 @@ export default function SessionModal({websocket}) {
         }
     }
     websocket.send(JSON.stringify(handshakeMessage));
+    const getplayer = {
+      "event": "user",
+      "method": "retrieve",
+      "kwargs": {},
+      "body": {}
+    }
+  
+    websocket.send(JSON.stringify(getplayer));
     setOpen(false);
   };
 
