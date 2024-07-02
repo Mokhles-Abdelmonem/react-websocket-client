@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import EventForms from '../modals/BackgroundEventsForms';
 import FormDialog from '../modals/TimeEventsDialoge';
 
-export default function DrawerButton({ text, body, websocket, color, buildings, setBuildings}) {
+export default function DrawerButton({ text, body, websocket, color, buildings, setBuildings, eventId, player, playersAll}) {
   const [open, setOpen] = React.useState(false);
 
   const cleanText = text.replace(/ /g, '');
@@ -41,6 +41,9 @@ export default function DrawerButton({ text, body, websocket, color, buildings, 
             Form={Form}
             buildings={buildings} 
             setBuildings={setBuildings}
+            eventId={eventId}
+            player={player}
+            playersAll={playersAll}
           />
         ) : (null)
       }

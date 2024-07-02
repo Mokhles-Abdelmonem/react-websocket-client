@@ -88,3 +88,7 @@ export const soldiersCatData = {
       "JetpackWarrior_10",
   ],
 }
+
+export const packages = [
+  5, 10, 15, 30, 60, 1440, 2880, 4320
+]

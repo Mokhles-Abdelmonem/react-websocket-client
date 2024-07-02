@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -10,7 +9,9 @@ import { Box } from '@mui/material';
 
 
 
-export default function FormDialog({websocket, text, body, open, setOpen, Form,  buildings, setBuildings}) {
+export default function FormDialog({
+  websocket, text, body, open, setOpen, Form,  buildings, setBuildings, eventId, player, playersAll
+}) {
   const [eventBody, seteventBody] = React.useState(body);
   const handleClose = () => {
     setOpen(false);
@@ -29,7 +30,7 @@ export default function FormDialog({websocket, text, body, open, setOpen, Form, 
           noValidate
           autoComplete="off"
         >
-          {Form(eventBody, seteventBody, buildings, setBuildings)}
+          {Form({eventBody:eventBody, buildings:buildings, eventId:eventId, player:player, playersAll:playersAll})}
         </Box>
       </>
     )

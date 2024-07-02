@@ -37,7 +37,7 @@ export default function SessionModal({websocket}) {
         event: "session",
         method: "create",
         kwargs: {
-            "device_id": "123"
+            "device_id": deviceId
         }
     }
     websocket.send(JSON.stringify(handshakeMessage));
@@ -47,8 +47,16 @@ export default function SessionModal({websocket}) {
       "kwargs": {},
       "body": {}
     }
-  
     websocket.send(JSON.stringify(getplayer));
+    const getPlayersAll = {
+      "event": "user",
+      "method": "list",
+      "kwargs": {},
+      "body": {}
+    }
+  
+    websocket.send(JSON.stringify(getPlayersAll));
+
     setOpen(false);
   };
 

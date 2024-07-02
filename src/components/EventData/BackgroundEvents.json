@@ -47,14 +47,12 @@
     "method": "create",
     "kwargs": {
       "troops": {
-        "DeltaStrikerUnit": 2
       },
       "heroes": {},
       "target_pos": [
-        20,
-        40
+
       ],
-      "other_id": "12345"
+      "other_id": ""
     },
     "body": {}
   },

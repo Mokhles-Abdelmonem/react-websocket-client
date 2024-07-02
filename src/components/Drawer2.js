@@ -70,7 +70,9 @@ export default function PersistentDrawerLeft(props) {
     eventId ,
     messages,
     buildings, 
-    setBuildings
+    setBuildings,
+    player,
+    playersAll
   } = props;
 
   const theme = useTheme();
@@ -126,6 +128,9 @@ export default function PersistentDrawerLeft(props) {
           websocket={websocket}
           buildings={buildings}
           setBuildings={setBuildings}
+          eventId={eventId}
+          player={player}
+          playersAll={playersAll}
           />
         </List>
 

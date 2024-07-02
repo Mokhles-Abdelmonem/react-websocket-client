@@ -24,8 +24,10 @@ const websocket = new WebSocket(WS_URL);
 function App() {
   const [messages, setMessages] = useState([]);
   const [Key, setBuildingKey] = useState(1);
-  const [eventId, setEventId] = useState("a1f09ea2-1937-48f9-b45e-a9b516635a79");
+  const [eventId, setEventId] = useState("");
   const [buildings, setBuildings] = React.useState([]);
+  const [player, setPlayer] = React.useState({});
+  const [playersAll, setplayersAll] = React.useState([]);
 
   websocket.onmessage = function (event) {
     const json = JSON.parse(event.data)
@@ -43,10 +45,24 @@ function App() {
         }
         if (json.param.event_id !== undefined && json.param.event_id !== null){
           setEventId(json.param.event_id)
-          console.log("json.param.event_id: ", json.param.event_id)
         }
         if (json.param.event_name === 'user_retrieve'){
           setBuildings(Object.keys(json.param.user.city_data))
+          setPlayer(json.param.user)
+        } else if (json.param.event_name === 'user_list') {
+          const players = json.param.players
+          
+          const keysToKeep = ['obj_id', 'player_data'];
+          
+          const filteredPlayers = players.filter(player => player.obj_id > json.param.player_id).map(player => {
+            return keysToKeep.reduce((obj, key) => {
+              if (player[key] !== undefined) {
+                obj[key] = player[key];
+              }
+              return obj;
+            }, {});
+          });
+          setplayersAll(filteredPlayers)
         }
       }
     } catch (err) {
@@ -69,6 +85,8 @@ function App() {
         messages={messages}
         buildings={buildings} 
         setBuildings={setBuildings}
+        player={player}
+        playersAll={playersAll}
       />
     </ThemeProvider>
 
