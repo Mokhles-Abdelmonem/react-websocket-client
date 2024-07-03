@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SocketEvents from './SocketEvents';
+import SingleEvents from './SingleEvents';
 import BackgroundEvents from './BackgroundEvents'
 
 const drawerWidth = 240;
@@ -125,6 +126,19 @@ export default function PersistentDrawerLeft(props) {
         </DrawerHeader>
         <List>
           <BackgroundEvents
+          websocket={websocket}
+          buildings={buildings}
+          setBuildings={setBuildings}
+          eventId={eventId}
+          player={player}
+          playersAll={playersAll}
+          />
+        </List>
+
+        <Divider />
+
+        <List>
+          <SingleEvents
           websocket={websocket}
           buildings={buildings}
           setBuildings={setBuildings}

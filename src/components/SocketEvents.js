@@ -43,17 +43,7 @@ function SocketEvents({websocket, Key, eventId}) {
 
   return (
     <> 
-      <BuildingMenu
-      buildingTypes={buildingTypes}
-      setbuildingType={setbuildingType}
-      />
       
-      {UpdateBuildingPosition(websocket, buildingType, Key)}
-
-      {CollectOneFarm(websocket, buildingType, Key)}
-
-      {DeleteBuiding(websocket, buildingType, Key)}
-
       {GetPlayer(websocket)}
 
       {UpdateUsername(websocket)}

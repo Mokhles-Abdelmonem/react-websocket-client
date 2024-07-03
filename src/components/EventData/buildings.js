@@ -11,6 +11,12 @@ export const malitaryBuildings = [
   "longshot_division", "barracks", "aero_command", "artillery_garage",
 ]
 
+
+export const productionBuildings = [
+  "farm", "lumber_mill", "quarry", "ore_refinery", "power_station", "house"
+]
+
+
 export const soldiersCatData = {
   "longshot_division": [
       "Bowman",

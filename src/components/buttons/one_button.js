@@ -4,15 +4,20 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import EventForms from '../modals/BackgroundEventsForms';
+import BackgroundEventsForms from '../modals/BackgroundEventsForms';
+import EventForms from '../modals/SingleEventsForms';
 import FormDialog from '../modals/TimeEventsDialoge';
 
 export default function DrawerButton({ text, body, websocket, color, buildings, setBuildings, eventId, player, playersAll}) {
   const [open, setOpen] = React.useState(false);
-
+  const FormsAll = { ...BackgroundEventsForms, ...EventForms }; 
   const cleanText = text.replace(/ /g, '');
-  const Form = EventForms[cleanText] || null;
+  const Form = FormsAll[cleanText] || null;
 
+  if (["Accelerate", "DeleteEvent", "CallBack"].includes(cleanText)) {
+    color = "#8B0000";
+  }
+  
   const handleClickOpen = () => {
     if (Form === null){
       console.log("event sent > ", body)
@@ -24,13 +29,18 @@ export default function DrawerButton({ text, body, websocket, color, buildings, 
 
   return (
     <>
-      <ListItemButton onClick={handleClickOpen}>
+      <ListItemButton 
+        onClick={handleClickOpen}
+        sx={{ bgcolor: color }}
+      >
         <ListItemIcon>
           <MenuIcon />
         </ListItemIcon>
         <ListItemText primary={text} />
       </ListItemButton>
-      <ListItem key={text} disablePadding sx={{ bgcolor: color }}>
+      <ListItem 
+        disablePadding
+      >
         {Form ? (
           <FormDialog
             websocket={websocket}

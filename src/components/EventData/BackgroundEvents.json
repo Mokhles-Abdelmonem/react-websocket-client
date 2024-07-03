@@ -3,7 +3,7 @@
     "event": "building",
     "method": "create",
     "kwargs": {
-      "building_type": "farm"
+      "building_type": ""
     },
     "body": {
       "world_position":{
@@ -27,7 +27,7 @@
     "method": "update",
     "event": "building",
     "kwargs": {
-      "building_type": "farm",
+      "building_type": "",
       "key": 1
     },
     "body": {}
@@ -36,8 +36,8 @@
     "event": "train",
     "method": "update",
     "kwargs": {
-      "building_type": "barracks",
-      "soldier_type": "DeltaStrikerUnit",
+      "building_type": "",
+      "soldier_type": "",
       "soldier_number": 5
     },
     "body": {}
@@ -49,9 +49,7 @@
       "troops": {
       },
       "heroes": {},
-      "target_pos": [
-
-      ],
+      "target_pos": [0, 0],
       "other_id": ""
     },
     "body": {}
@@ -60,11 +58,8 @@
     "event": "spy_info",
     "method": "create",
     "kwargs": {
-      "target_pos": [
-        20,
-        40
-      ],
-      "other_id": "123"
+      "target_pos": [0, 0],
+      "other_id": ""
     },
     "body": {}
   },
@@ -72,10 +67,7 @@
     "event": "scout_area",
     "method": "create",
     "kwargs": {
-      "target_pos": [
-        20,
-        40
-      ]
+      "target_pos": [0, 0]
     },
     "body": {}
   },
@@ -83,12 +75,8 @@
     "event": "attack_ultimates",
     "method": "create",
     "kwargs": {
-      "target_pos": [
-        25,
-        16
-      ],
+      "target_pos": [0, 0],
       "troops": {
-        "Bowman": 100
       },
       "heroes": {}
     },
@@ -98,13 +86,8 @@
     "event": "attack_resource_tile",
     "method": "create",
     "kwargs": {
-      "target_pos": [
-        21,
-        22
-      ],
-      "troops": {
-        "Bowman": 100
-      },
+      "target_pos": [0, 0],
+      "troops": {},
       "heroes": {}
     },
     "body": {}
@@ -113,8 +96,8 @@
     "event": "event",
     "method": "update",
     "kwargs": {
-      "event_id": "a1f09ea2-1937-48f9-b45e-a9b516635a79",
-      "package": 60
+      "event_id": "",
+      "package": 10
     },
     "body": {}
   },

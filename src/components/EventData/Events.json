@@ -1,140 +1,33 @@
 {
-  "CreateBuilding": {
-    "event": "building",
-    "method": "create",
+  "UpdateBuildingPos": {
+    "event": "building_position",
+    "method": "update",
     "kwargs": {
-      "building_type": "farm"
+      "building_type": "",
+      "key": 1
     },
     "body": {
-      "world_position":{
-         "x":550,
-         "y":550,
-         "z":550
-      },
-      "local_scale":{
-         "x":1,
-         "y":1,
-         "z":1
-      },
-      "max_scale":{
-         "x":1,
-         "y":1,
-         "z":1
-      }
-   }
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
   },
-  "UpdateBuilding": {
+  "Collect": {
     "method": "update",
-    "event": "building",
+    "event": "collect",
     "kwargs": {
-      "building_type": "farm",
+      "building_type": "",
       "key": 1
     },
     "body": {}
   },
-  "TrainTroops": {
-    "event": "train",
-    "method": "update",
-    "kwargs": {
-      "building_type": "barracks",
-      "soldier_type": "DeltaStrikerUnit",
-      "soldier_number": 5
-    },
-    "body": {}
-  },
-  "AttackPlayer": {
-    "event": "attack",
-    "method": "create",
-    "kwargs": {
-      "troops": {
-        "DeltaStrikerUnit": 2
-      },
-      "heroes": {},
-      "target_pos": [
-        20,
-        40
-      ],
-      "other_id": "12345"
-    },
-    "body": {}
-  },
-  "Spy": {
-    "event": "spy_info",
-    "method": "create",
-    "kwargs": {
-      "target_pos": [
-        20,
-        40
-      ],
-      "other_id": "123"
-    },
-    "body": {}
-  },
-  "Scout": {
-    "event": "scout_area",
-    "method": "create",
-    "kwargs": {
-      "target_pos": [
-        20,
-        40
-      ]
-    },
-    "body": {}
-  },
-  "AttackUltimates": {
-    "event": "attack_ultimates",
-    "method": "create",
-    "kwargs": {
-      "target_pos": [
-        25,
-        16
-      ],
-      "troops": {
-        "Bowman": 100
-      },
-      "heroes": {}
-    },
-    "body": {}
-  },
-  "AttackResourceTile": {
-    "event": "attack_resource_tile",
-    "method": "create",
-    "kwargs": {
-      "target_pos": [
-        21,
-        22
-      ],
-      "troops": {
-        "Bowman": 100
-      },
-      "heroes": {}
-    },
-    "body": {}
-  },
-  "Accelerate": {
-    "event": "event",
-    "method": "update",
-    "kwargs": {
-      "event_id": "a1f09ea2-1937-48f9-b45e-a9b516635a79",
-      "package": 60
-    },
-    "body": {}
-  },
-  "DeleteEvent": {
-    "event": "event",
+  "DeleteBuilding": {
+    "event": "building",
     "method": "delete",
     "kwargs": {
-      "event_id": "building_complete@create@1707140191961508761@1707144751.963051"
+      "building_type": "",
+      "key": 1
     },
     "body": {}
-  },
-  "CallBack": {
-    "event": "dispatch_callback",
-    "method": "update",
-    "kwargs": {
-        "event_id": "144a0af5-6909-455b-8669-2926aba68421",
-        "position": [10, 10]
-    },
-    "body":{}
   }
 }

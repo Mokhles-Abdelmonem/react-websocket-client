@@ -13,7 +13,7 @@ function CreateBuildingForm(props) {
 
   const handleBuildingChange = (event) => {
     console.log(event.target.value)
-    eventBody.kwargs["building_type"] = event.target.value
+    eventBody.kwargs.building_type = event.target.value
     setBuilding(event.target.value);
   };
 
@@ -23,16 +23,16 @@ function CreateBuildingForm(props) {
   };
 
   React.useEffect(() => {
-    eventBody.kwargs["building_type"] = "hq"
+    eventBody.kwargs.building_type = "hq"
   }, [])
 
   return (
     <>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
-          <InputLabel id="demo-simple-select-filled-label">Building</InputLabel>
+          <InputLabel id="building-create-select-filled-label">Building</InputLabel>
           <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
+            labelId="building-create-select-filled-label"
+            id="building-create-select-filled"
             value={building}
             onChange={handleBuildingChange}
             label="building"
@@ -51,7 +51,7 @@ function CreateBuildingForm(props) {
           id="x"
           label="x"
           type="number"
-          defaultValue="1"
+          defaultValue="0"
           onChange={handlePosChange}
         />
         <TextField
@@ -59,7 +59,7 @@ function CreateBuildingForm(props) {
           id="y"
           label="y"
           type="number"
-          defaultValue="1"
+          defaultValue="0"
           onChange={handlePosChange}
         />
         <TextField
@@ -67,20 +67,20 @@ function CreateBuildingForm(props) {
           id="z"
           label="z"
           type="number"
-          defaultValue="1"
+          defaultValue="0"
           onChange={handlePosChange}
         />
     </>
   );
 }
-  
+
+
 function UpgradeBuildinForm(props) {
   const { eventBody, buildings } = props
   const [building, setBuilding] = React.useState(buildings[0]);
 
   const handleBuildingChange = (event) => {
-    console.log(event.target.value)
-    eventBody.kwargs["building_type"] = event.target.value
+    eventBody.kwargs.building_type = event.target.value
     setBuilding(event.target.value);
   };
 
@@ -91,16 +91,16 @@ function UpgradeBuildinForm(props) {
 
   React.useEffect(() => {
     setBuilding(buildings[0])
-    eventBody.kwargs["building_type"] = buildings[0]
+    eventBody.kwargs.building_type = buildings[0]
   }, [buildings])
 
     return(
       <>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
-          <InputLabel id="demo-simple-select-filled-label">Building</InputLabel>
+          <InputLabel id="building-update-select-filled-label">Building</InputLabel>
           <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
+            labelId="building-update-select-filled-label"
+            id="building-update-select-filled"
             value={building}
             onChange={handleBuildingChange}
             label="building"
@@ -126,6 +126,7 @@ function UpgradeBuildinForm(props) {
     )
 }
 
+
 function TrainTroopsForm(props) {
   const { eventBody, buildings } = props
 
@@ -136,7 +137,7 @@ function TrainTroopsForm(props) {
   
   const handleBuildingChange = (event) => {
     let building = event.target.value
-    eventBody.kwargs["building_type"] = building
+    eventBody.kwargs.building_type = building
     setBuilding(building);
     setsoldiersFiltered(soldiersCatData[building])
     setSoldierDisabled(false)
@@ -153,17 +154,17 @@ function TrainTroopsForm(props) {
   };
 
   React.useEffect(() => {
-    setBuilding()
-    eventBody.kwargs["building_type"] = buildings[0]
+    setBuilding(buildings[0])
+    eventBody.kwargs.building_type = buildings[0]
   }, [buildings])
 
     return(
       <>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
-          <InputLabel id="demo-simple-select-filled-label">Building</InputLabel>
+          <InputLabel id="train-troops-select-filled-label">Building</InputLabel>
           <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
+            labelId="train-troops-select-filled-label"
+            id="train-troops-select-filled"
             value={building}
             onChange={handleBuildingChange}
             label="building"
@@ -209,52 +210,10 @@ function TrainTroopsForm(props) {
     )
 }
 
-function AccelerateForm(props) {
-  const { eventBody, eventId } = props
-  eventBody.kwargs["event_id"] = eventId
-  eventBody.kwargs["package"] = packages[4]
-
-  const handlePackageChange = (event) => {
-    console.log(event.target.value)
-    eventBody.kwargs["package"] = event.target.value
-  };
-
-
-    return(
-      <>
-        <TextField
-          disabled
-          id="eventId"
-          label={eventId}
-          defaultValue={eventId}
-        />
-        <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
-          <InputLabel id="demo-simple-select-filled-label">Packages</InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            value={packages[4]}
-            onChange={handlePackageChange}
-            label="packages"
-          >
-          {packages.map((value) => (
-            <MenuItem
-              key={value}
-              value={value}
-            >
-              {value}
-            </MenuItem>
-          ))}
-          </Select>
-        </FormControl>
-      </>
-    )
-}
 
 function AttackPlayerForm(props) {
   const { eventBody, player, playersAll } = props
   const [troops, setTroops] = React.useState([]);
-  const [targerPlayerId, setTargerPlayerId] = React.useState("");
   const [targerPlayer, setTargerPlayer] = React.useState({});
   const [checkedData, setCheckedData] = React.useState({});
   
@@ -267,7 +226,6 @@ function AttackPlayerForm(props) {
     
   })
 
-  console.log("rendered")
   function MarginBar() {
     return (
       <Box
@@ -289,8 +247,6 @@ function AttackPlayerForm(props) {
     const Player =playersAll.filter(player => player.obj_id === other_id)[0];
     eventBody.kwargs.other_id = other_id
     eventBody.kwargs.target_pos = [Player.player_data.position.x, Player.player_data.position.y]
-    
-    setTargerPlayerId(other_id);
     setTargerPlayer(Player);
     
   };
@@ -315,16 +271,15 @@ function AttackPlayerForm(props) {
         setCheckedData((prevState) => ({...prevState, [soldier]: false, }));
       })
     }
-    if (playersAll.length > 0 ){
-      setTargerPlayerId(playersAll[0].obj_id)
+    if (playersAll !== undefined && playersAll.length > 0 ){
+      console.log("playersAll", playersAll)
       setTargerPlayer(playersAll[0])
     }    
 
-  }, [player, playersAll])
+  }, [playersAll, player])
 
   return (
     <>
-        <FormGroup sx={{ m: 1, minWidth: 440 }}>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
           <InputLabel id="target_player"> Target Player </InputLabel>
             <Select
@@ -374,18 +329,316 @@ function AttackPlayerForm(props) {
               />
             </>
           ))}
-        </FormGroup>
     </>
   );
 }
+
+
+function SpyForm(props) {
+  const { eventBody, player, playersAll } = props
+
+
+  const handlePlayerChange = (event) => {
+    let other_id = event.target.value
+    const Player =playersAll.filter(player => player.obj_id === other_id)[0];
+    eventBody.kwargs.other_id = other_id
+    eventBody.kwargs.target_pos = [Player.player_data.position.x, Player.player_data.position.y]
+    
+  };
+
+
+  return (
+    <>
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
+          <InputLabel id="target_player"> Target Player </InputLabel>
+            <Select
+              labelId="demo-simple-select-filled-label"
+              name="target_player"
+              onChange={handlePlayerChange}
+              label="target_player"
+            >
+            {playersAll.map((player) => (
+              
+              <MenuItem
+                key={player.obj_id}
+                value={player.obj_id}
+              >
+                {player.player_data.username} 
+              </MenuItem>
+            ))}
+            </Select>
+        </FormControl>
+    </>
+  );
+}
+
+
+function ScoutForm(props) {
+  const { eventBody, player } = props
+
+
+  const handlePosChange = (event) => {
+    const { id, value } = event.target;
+    let index = 0
+    if (id === "y") {
+      index = 1
+    }
+    eventBody.kwargs.target_pos[index] = parseInt(value, 10);
+  };
+
+
+  return (
+    <>
+        <TextField
+          id="x"
+          label="Pos X"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+        <TextField
+          required
+          id="y"
+          label="Pos Y"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+    </>
+  );
+}
+
+
+function AttackAdversariesForm(props) {
+  const { eventBody, player } = props
+  const [troops, setTroops] = React.useState([]);
+  const [checkedData, setCheckedData] = React.useState({});
+  
+  Object.keys(checkedData).map((key) => {
+    if (!checkedData[key]) {
+      delete eventBody.kwargs.troops[key]
+    }else{
+      eventBody.kwargs.troops[key] = 1
+    }
+    
+  })
+
+  function MarginBar() {
+    return (
+      <Box
+        sx={{
+          height: 30,
+        }}
+      />
+    );
+  }
+
+  const handlePosChange = (event) => {
+    const { id, value } = event.target;
+    let index = 0
+    if (id === "y") {
+      index = 1
+    }
+    eventBody.kwargs.target_pos[index] = parseInt(value, 10);
+  };
+
+  const handleCheckboxChange = (event) => {
+    const { id, checked } = event.target;
+    setCheckedData((prevState) => ({...prevState, [id]: checked, }));
+  };
+
+
+
+  const handleSliderChange = (event) => {
+    const { name, value } = event.target;
+    eventBody.kwargs.troops[name] = parseInt(value, 10);
+    setCheckedData((prevState) => ({...prevState, [name]: true, }));
+
+  };
+
+
+  function valuetext(value) {
+    return `${value}°C`;
+  }
+
+  React.useEffect(() => {
+    if (player.troops !== undefined){
+      let troops = Object.keys(player.troops)
+      setTroops(troops)
+      troops.map((soldier)=> {
+        setCheckedData((prevState) => ({...prevState, [soldier]: false, }));
+      })
+    }
   
 
-const EventForms = {
+  }, [player])
+
+  return (
+    <>
+        <TextField
+          id="x"
+          label="Pos X"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+        <TextField
+          required
+          id="y"
+          label="Pos Y"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+          <MarginBar/>
+          <DialogContentText>
+            Troops
+          </DialogContentText>
+          {troops.map((value) => (
+            <>
+              <FormControlLabel control={
+                <Checkbox
+                onChange={handleCheckboxChange}
+                id={value}
+                checked={checkedData[value]}
+                />
+              } label={value} />
+              <Slider
+                aria-label="SoldierNumber"
+                defaultValue={1}
+                getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                shiftStep={1}
+                step={1}
+                marks
+                min={1}
+                max={player.troops[value].owned}
+                name={value}
+                onChange={handleSliderChange}
+              />
+            </>
+          ))}
+    </>
+  );
+}
+
+
+function AccelerateForm(props) {
+  const { eventBody, eventId } = props
+  eventBody.kwargs.event_id = eventId
+  const [acceleratePackage, setPackage] = React.useState(packages[4]);
+
+  const handlePackageChange = (event) => {
+    let acceleratePackage = event.target.value;
+    eventBody.kwargs.package = acceleratePackage;
+    setPackage(acceleratePackage);
+  };
+
+
+    return(
+      <>
+        <TextField
+          disabled
+          id="eventId"
+          label="Event Id (auto generated)"
+          defaultValue={eventId}
+        />
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
+          <InputLabel id="accelerate-event-select-filled-label">Packages</InputLabel>
+          <Select
+            labelId="accelerate-event-select-filled-label"
+            id="accelerate-event-select-filled"
+            value={acceleratePackage}
+            onChange={handlePackageChange}
+            label="packages"
+          >
+          {packages.map((value) => (
+            <MenuItem
+              key={value}
+              value={value}
+            >
+              {value}
+            </MenuItem>
+          ))}
+          </Select>
+        </FormControl>
+      </>
+    )
+}
+
+
+function DeleteEventForm(props) {
+  const { eventBody, eventId } = props
+  eventBody.kwargs.event_id = eventId
+
+
+    return(
+      <>
+        <TextField
+          disabled
+          id="eventId"
+          label="Event Id (auto generated)"
+          defaultValue={eventId}
+        />
+      </>
+    )
+}
+
+
+function CallBackForm(props) {
+  const { eventBody, eventId } = props
+  eventBody.kwargs.event_id = eventId
+
+  const handlePosChange = (event) => {
+    const { id, value } = event.target;
+    let index = 0
+    if (id === "y") {
+      index = 1
+    }
+    eventBody.kwargs.target_pos[index] = parseInt(value, 10);
+  };
+
+
+    return(
+      <>
+        <TextField
+          id="x"
+          label="Pos X"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+        <TextField
+          required
+          id="y"
+          label="Pos Y"
+          type="number"
+          defaultValue="0"
+          onChange={handlePosChange}
+        />
+          <TextField
+          disabled
+          id="eventId"
+          label="Event Id (auto generated)"
+          defaultValue={eventId}
+        />
+      </>
+    )
+}
+
+
+const BackgroundEventsForms = {
     "CreateBuilding": CreateBuildingForm,
     "UpdateBuilding": UpgradeBuildinForm,
     "TrainTroops": TrainTroopsForm,
     "AttackPlayer": AttackPlayerForm,
+    "Spy": SpyForm,
+    "Scout": ScoutForm,
+    "AttackUltimates": AttackAdversariesForm,
+    "AttackResourceTile": AttackAdversariesForm,
     "Accelerate": AccelerateForm,
+    "DeleteEvent": DeleteEventForm,
+    "CallBack": CallBackForm,
   } 
 
-export default EventForms
+export default BackgroundEventsForms;

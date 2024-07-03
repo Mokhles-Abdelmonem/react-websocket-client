@@ -1,17 +1,16 @@
 import * as React from 'react';
 import DrawerButton from './buttons/one_button';
-import BackgroundEventData from './EventData/BackgroundEvents.json'
+import EventData from './EventData/Events.json'
 
-function BackgroundEvents({websocket, buildings, setBuildings, eventId, player, playersAll}) {
+function SingleEvents({websocket, buildings, setBuildings, eventId, player, playersAll}) {
   return (
     <> 
-      {Object.entries(BackgroundEventData).map(([key, value]) => (
+      {Object.entries(EventData).map(([key, value]) => (
           <div key={key} >
               <DrawerButton
               text={key}
               body={value}
               websocket={websocket}
-              color={'#001F3F'}
               buildings={buildings}
               setBuildings={setBuildings}
               eventId={eventId}
@@ -24,4 +23,4 @@ function BackgroundEvents({websocket, buildings, setBuildings, eventId, player, 
   );
 }
 
-export default BackgroundEvents;
+export default SingleEvents;

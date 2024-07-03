@@ -56,7 +56,7 @@ export default function FormDialog({
         <DialogTitle> { text } </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Fill the required fields
+            Required fields
           </DialogContentText>
           {GetModalForm()}
         </DialogContent>
