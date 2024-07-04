@@ -6,11 +6,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Box } from '@mui/material';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 
 export default function FormDialog({
-  websocket, text, body, open, setOpen, Form,  buildings, setBuildings, eventId, player, playersAll
+  websocket, text, body, open, setOpen, Form,  buildings, setBuildings, eventId, player, playersAll, setmessagesSent
 }) {
   const [eventBody, seteventBody] = React.useState(body);
   const handleClose = () => {
@@ -44,11 +45,9 @@ export default function FormDialog({
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            console.log(formJson);
-            console.log("event sent > ", eventBody)
-            websocket.send(JSON.stringify(eventBody));
+            let message = JSON.stringify(eventBody)
+            setmessagesSent((prevMessages) => [eventBody, ...prevMessages])
+            websocket.send(message);
             handleClose();
           },
         }}
@@ -61,8 +60,12 @@ export default function FormDialog({
           {GetModalForm()}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">submit</Button>
+          <Button variant="contained" color="error" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button type="submit" variant="contained" endIcon={<SendIcon />} color="success">
+            Send
+          </Button>
         </DialogActions>
       </Dialog>
   );

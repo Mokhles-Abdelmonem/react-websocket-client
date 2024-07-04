@@ -374,7 +374,7 @@ function SpyForm(props) {
 
 
 function ScoutForm(props) {
-  const { eventBody, player } = props
+  const { eventBody } = props
 
 
   const handlePosChange = (event) => {

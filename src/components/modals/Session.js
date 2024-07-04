@@ -19,13 +19,10 @@ const style = {
   pb: 3,
 };
 
-export default function SessionModal({websocket}) {
+export default function SessionModal({websocket, setmessagesSent}) {
   const [open, setOpen] = React.useState(true);
   const [deviceId, setDeviceId] = React.useState("123");
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -40,6 +37,7 @@ export default function SessionModal({websocket}) {
             "device_id": deviceId
         }
     }
+
     websocket.send(JSON.stringify(handshakeMessage));
     const getplayer = {
       "event": "user",
@@ -56,6 +54,10 @@ export default function SessionModal({websocket}) {
     }
   
     websocket.send(JSON.stringify(getPlayersAll));
+
+    setmessagesSent((prevMessages) => [handshakeMessage, ...prevMessages])
+    setmessagesSent((prevMessages) => [getplayer, ...prevMessages])
+    setmessagesSent((prevMessages) => [getPlayersAll, ...prevMessages])
 
     setOpen(false);
   };

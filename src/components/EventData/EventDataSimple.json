@@ -1,0 +1,84 @@
+{
+  "GetPlayer": {
+    "event": "user",
+    "method": "retrieve",
+    "kwargs": {},
+    "body": {}
+  },
+  "GetUsersAll": {
+    "event": "user",
+    "method": "list",
+    "kwargs": {},
+    "body":{}
+  },
+  "getAllies": {
+    "event": "allies",
+    "method": "list",
+    "kwargs": {},
+    "body":{}
+  },
+  "LeaveAllies": {
+    "event": "leave_allies",
+    "method": "update",
+    "kwargs": {},
+    "body": {}
+  },
+  "SubscribeMap": {
+    "event": "subscribe",
+    "method": "create",
+    "kwargs": {
+      "channel":"map"
+    },
+    "body": {}
+  },
+  "UnSubscribeMap": {
+    "event": "subscribe",
+    "method": "delete",
+    "kwargs": {
+      "channel":"map"
+    },
+    "body": {}
+  },
+  "RandomMigrate": {
+    "event": "migrate_random",
+    "method": "update",
+    "kwargs": {},
+    "body": {}
+  },
+  "getDispatches": {
+    "event": "dispatch",
+    "method": "list",
+    "kwargs": {},
+    "body": {}
+  },
+  "getLiveEvents": {
+    "event": "live_events",
+    "method": "list",
+    "kwargs": {},
+    "body": {}
+  },
+  "getReports": {
+    "event": "reports",
+    "method": "list",
+    "kwargs": {},
+    "body": {}
+  },
+  "getUltimates": {
+    "event": "ultimates",
+    "method": "list",
+    "kwargs": {},
+    "body": {}
+  },
+  "getResourceTiles": {
+    "event": "resource_tiles",
+    "method": "list",
+    "kwargs": {},
+    "body": {}
+  },
+  "CloseButton": {
+    "event": "connection",
+    "method": "close",
+    "kwargs": {},
+    "body": {}
+  }
+}

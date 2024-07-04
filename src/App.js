@@ -4,7 +4,7 @@ import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import SessionModal from './components/modals/Session';
-import PersistentDrawerLeft from './components/Drawer2';
+import PersistentDrawerLeft from './components/Drawer';
 
 const darkTheme = createTheme({
   palette: {
@@ -23,6 +23,8 @@ const websocket = new WebSocket(WS_URL);
 
 function App() {
   const [messages, setMessages] = useState([]);
+  const [messagesSent, setmessagesSent] = useState([]);
+  const [errorMessages, seterrorMessages] = useState([]);
   const [Key, setBuildingKey] = useState(1);
   const [eventId, setEventId] = useState("");
   const [buildings, setBuildings] = React.useState([]);
@@ -35,11 +37,15 @@ function App() {
     try {
       if ("error" in json) {
         setMessages((prevMessages) => [json.error, ...prevMessages]);
+        seterrorMessages((prevMessages) => [json.error, ...prevMessages])
       }
       else if ("body" in json){
         setMessages((prevMessages) => [json.body.message, ...prevMessages]);
       }else{
         setMessages((prevMessages) => [json, ...prevMessages]);
+        if (json.type === "error" ){
+          seterrorMessages((prevMessages) => [json, ...prevMessages])
+        }
         if (json.param.event_name === 'create_building'){
           setBuildingKey(json.param.key)
         }
@@ -77,12 +83,16 @@ function App() {
       <main>This app is using the dark mode</main>
       <SessionModal
         websocket={websocket}
+        setmessagesSent={setmessagesSent}
       />
       <PersistentDrawerLeft
         websocket={websocket}
         Key={Key}
         eventId={eventId}
         messages={messages}
+        messagesSent={messagesSent}
+        setmessagesSent={setmessagesSent}
+        errorMessages={errorMessages}
         buildings={buildings} 
         setBuildings={setBuildings}
         player={player}

@@ -1,0 +1,112 @@
+{
+  "UpdateBuildingPos": {
+    "event": "building_position",
+    "method": "update",
+    "kwargs": {
+      "building_type": "",
+      "key": 1
+    },
+    "body": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  "Collect": {
+    "method": "update",
+    "event": "collect",
+    "kwargs": {
+      "building_type": "",
+      "key": 1
+    },
+    "body": {}
+  },
+  "DeleteBuilding": {
+    "event": "building",
+    "method": "delete",
+    "kwargs": {
+      "building_type": "",
+      "key": 1
+    },
+    "body": {}
+  },
+  "UpdateUsername": {
+    "event": "username",
+    "method": "update",
+    "kwargs": {
+      "username": "Mostafa"
+    },
+    "body": {}
+  },
+  "SearchPlayers": {
+    "event": "user_region",
+    "method": "list",
+    "kwargs": {
+      "center_point": [0, 0]
+    },
+    "body": {}
+  },
+  "GetCityData": {
+    "event": "city_data",
+    "method": "retrieve",
+    "kwargs": {
+      "player_id": ""
+    },
+    "body": {}
+  },
+  "CreateAllies": {
+    "event": "allies",
+    "method": "create",
+    "kwargs": {},
+    "body": {
+      "name": "",
+      "symbol": ""
+    }
+  },
+  "JoinAllies": {
+    "event": "join_allies",
+    "method": "update",
+    "kwargs": {
+      "allies_id": "Lion_Ego_1"
+    },
+    "body": {}
+  },
+  "SuperMigrate": {
+    "event": "migrate_super",
+    "method": "update",
+    "kwargs": {},
+    "body": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "Chat": {
+    "event": "message",
+    "method": "create",
+    "kwargs": {
+      "consumer": ""
+    },
+    "body": {
+      "message": ""
+    }
+  },
+  "ChatList": {
+    "event": "message",
+    "method": "list",
+    "kwargs": {
+      "consumer": ""
+    },
+    "body": {}
+  },
+  "GetMapObjects": {
+    "event": "map_object",
+    "method": "list",
+    "kwargs": {
+      "center_point":[10, 10]
+    },
+    "body":{}
+  }
+}
