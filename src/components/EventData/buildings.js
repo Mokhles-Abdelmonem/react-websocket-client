@@ -98,3 +98,7 @@ export const soldiersCatData = {
 export const packages = [
   5, 10, 15, 30, 60, 1440, 2880, 4320
 ]
+
+export const packages_percentage = [
+  5, 10, 15, 30, 60, 80, 90, 100
+]

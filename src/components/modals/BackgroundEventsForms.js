@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { Box, DialogContentText, FormControl, InputLabel, MenuItem, Select, Slider } from '@mui/material';
-import { buildingTypes, malitaryBuildings, soldiersCatData, packages } from '../EventData/buildings';
+import { buildingTypes, malitaryBuildings, soldiersCatData, packages, packages_percentage } from '../EventData/buildings';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -627,6 +627,51 @@ function CallBackForm(props) {
 }
 
 
+function DispatchAccelerateForm(props) {
+  const { eventBody, eventId } = props
+  eventBody.kwargs.event_id = eventId
+  const [acceleratePackage, setPackage] = React.useState(packages[4]);
+
+  const handlePackageChange = (event) => {
+    let acceleratePackage = event.target.value;
+    eventBody.kwargs.package = acceleratePackage;
+    setPackage(acceleratePackage);
+  };
+
+
+    return(
+      <>
+        <TextField
+          disabled
+          id="eventId"
+          label="Event Id (auto generated)"
+          defaultValue={eventId}
+        />
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 220 }}>
+          <InputLabel id="accelerate-event-select-filled-label">Packages</InputLabel>
+          <Select
+            labelId="accelerate-event-select-filled-label"
+            id="accelerate-event-select-filled"
+            value={acceleratePackage}
+            onChange={handlePackageChange}
+            label="packages"
+          >
+          {packages_percentage.map((value) => (
+            <MenuItem
+              key={value}
+              value={value}
+            >
+              {value}
+            </MenuItem>
+          ))}
+          </Select>
+        </FormControl>
+      </>
+    )
+}
+
+
+
 const BackgroundEventsForms = {
     "CreateBuilding": CreateBuildingForm,
     "UpdateBuilding": UpgradeBuildinForm,
@@ -637,6 +682,7 @@ const BackgroundEventsForms = {
     "AttackUltimates": AttackAdversariesForm,
     "AttackResourceTile": AttackAdversariesForm,
     "Accelerate": AccelerateForm,
+    "DispatchAccelerate": DispatchAccelerateForm,
     "DeleteEvent": DeleteEventForm,
     "CallBack": CallBackForm,
   } 

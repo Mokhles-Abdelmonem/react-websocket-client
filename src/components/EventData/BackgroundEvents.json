@@ -101,6 +101,15 @@
     },
     "body": {}
   },
+  "DispatchAccelerate": {
+    "event": "accelerate_dispatch",
+    "method": "update",
+    "kwargs": {
+      "event_id": "",
+      "package": 10
+    },
+    "body": {}
+  },
   "DeleteEvent": {
     "event": "event",
     "method": "delete",
