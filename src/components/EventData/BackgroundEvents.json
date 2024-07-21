@@ -106,7 +106,7 @@
     "method": "update",
     "kwargs": {
       "event_id": "",
-      "package": 10
+      "package": 60
     },
     "body": {}
   },
