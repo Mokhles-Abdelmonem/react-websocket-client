@@ -38,7 +38,12 @@ export default function SessionModal({websocket, setmessagesSent}) {
         }
     }
 
-    websocket.send(JSON.stringify(handshakeMessage));
+    if (websocket.readyState === WebSocket.OPEN) {
+        websocket.send(JSON.stringify(handshakeMessage));
+    } else {
+        console.error("WebSocket connection is not open");
+    }
+  
     const getplayer = {
       "event": "user",
       "method": "retrieve",
@@ -53,7 +58,11 @@ export default function SessionModal({websocket, setmessagesSent}) {
       "body": {}
     }
   
-    websocket.send(JSON.stringify(getPlayersAll));
+    if (websocket.readyState === WebSocket.OPEN) {
+      websocket.send(JSON.stringify(getPlayersAll));
+    } else {
+        console.error("WebSocket connection is not open");
+    }
 
     setmessagesSent((prevMessages) => [handshakeMessage, ...prevMessages])
     setmessagesSent((prevMessages) => [getplayer, ...prevMessages])
