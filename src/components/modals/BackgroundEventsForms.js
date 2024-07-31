@@ -595,7 +595,7 @@ function CallBackForm(props) {
     if (id === "y") {
       index = 1
     }
-    eventBody.kwargs.target_pos[index] = parseInt(value, 10);
+    eventBody.kwargs.position[index] = parseInt(value, 10);
   };
 
 
