@@ -263,6 +263,14 @@ function AttackPlayerForm(props) {
     return `${value}°C`;
   }
 
+  function stepValue(value) {
+    let step_value = 1
+    if (player.troops[value].owned >  1000){
+      step_value = Math.floor(player.troops[value].owned / 100)
+    }
+    return step_value
+  }
+
   React.useEffect(() => {
     if (player.troops !== undefined){
       let troops = Object.keys(player.troops)
@@ -319,8 +327,8 @@ function AttackPlayerForm(props) {
                 defaultValue={1}
                 getAriaValueText={valuetext}
                 valueLabelDisplay="auto"
-                shiftStep={1}
-                step={1}
+                shiftStep={stepValue(value)}
+                step={stepValue(value)}
                 marks
                 min={1}
                 max={player.troops[value].owned}
@@ -461,6 +469,16 @@ function AttackAdversariesForm(props) {
     return `${value}°C`;
   }
 
+
+  function stepValue(value) {
+    let step_value = 1
+    if (player.troops[value].owned >  1000){
+      step_value = Math.floor(player.troops[value].owned / 100)
+    }
+    return step_value
+  }
+
+
   React.useEffect(() => {
     if (player.troops !== undefined){
       let troops = Object.keys(player.troops)
@@ -508,8 +526,8 @@ function AttackAdversariesForm(props) {
                 defaultValue={1}
                 getAriaValueText={valuetext}
                 valueLabelDisplay="auto"
-                shiftStep={1}
-                step={1}
+                shiftStep={stepValue(value)}
+                step={stepValue(value)}
                 marks
                 min={1}
                 max={player.troops[value].owned}

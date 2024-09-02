@@ -131,7 +131,6 @@ function App() {
       if (event.data instanceof Blob) {
         // Handle Blob
         blobToString(event.data).then(stringData => {
-          console.log("String Data:", stringData);
           processBlob(event.data); // Process the Blob and update json
         }).catch(error => {
           console.error("Error converting Blob to string:", error);

@@ -1,4 +1,10 @@
 {
+  "GetGameRules": {
+    "event": "game_rules",
+    "method": "retrieve",
+    "kwargs": {},
+    "body": {}
+  },
   "GetPlayer": {
     "event": "user",
     "method": "retrieve",

@@ -378,7 +378,7 @@ function SuperMigrateForm(props) {
 function ChatForm(props) {
   const { eventBody, playersAll } = props
   const playerslist = playersAll.map(player => player.obj_id);
-  const consumers = ["kingdom", "alliance"].concat(playerslist)
+  const consumers = ["kingdom", "allies"].concat(playerslist)
 
   const handleConsumerChange = (event) => {
     let consumer = event.target.value
