@@ -220,10 +220,7 @@ function AttackPlayerForm(props) {
   Object.keys(checkedData).map((key) => {
     if (!checkedData[key]) {
       delete eventBody.kwargs.troops[key]
-    }else{
-      eventBody.kwargs.troops[key] = 1
     }
-    
   })
 
   function MarginBar() {
@@ -254,6 +251,8 @@ function AttackPlayerForm(props) {
   const handleSliderChange = (event) => {
     const { name, value } = event.target;
     eventBody.kwargs.troops[name] = parseInt(value, 10);
+    console.log("eventBody")
+    console.log(name)
     setCheckedData((prevState) => ({...prevState, [name]: true, }));
 
   };
@@ -425,10 +424,7 @@ function AttackAdversariesForm(props) {
   Object.keys(checkedData).map((key) => {
     if (!checkedData[key]) {
       delete eventBody.kwargs.troops[key]
-    }else{
-      eventBody.kwargs.troops[key] = 1
     }
-    
   })
 
   function MarginBar() {
@@ -461,7 +457,6 @@ function AttackAdversariesForm(props) {
     const { name, value } = event.target;
     eventBody.kwargs.troops[name] = parseInt(value, 10);
     setCheckedData((prevState) => ({...prevState, [name]: true, }));
-
   };
 
 
@@ -514,8 +509,9 @@ function AttackAdversariesForm(props) {
           </DialogContentText>
           {troops.map((value) => (
             <>
-              <FormControlLabel control={
-                <Checkbox
+              <FormControlLabel  control={
+                <Checkbox 
+                key={value}
                 onChange={handleCheckboxChange}
                 id={value}
                 checked={checkedData[value]}
