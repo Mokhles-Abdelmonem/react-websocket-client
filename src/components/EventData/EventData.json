@@ -54,8 +54,8 @@
     },
     "body": {}
   },
-  "CreateAllies": {
-    "event": "allies",
+  "CreateClan": {
+    "event": "clan",
     "method": "create",
     "kwargs": {},
     "body": {
@@ -63,11 +63,11 @@
       "symbol": ""
     }
   },
-  "JoinAllies": {
-    "event": "join_allies",
+  "JoinClan": {
+    "event": "join_clan",
     "method": "update",
     "kwargs": {
-      "allies_id": "Lion_Ego_1"
+      "clan_id": "Lion_Ego_1"
     },
     "body": {}
   },

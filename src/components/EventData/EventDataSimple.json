@@ -17,14 +17,14 @@
     "kwargs": {},
     "body":{}
   },
-  "getAllies": {
-    "event": "allies",
+  "getClan": {
+    "event": "clan",
     "method": "list",
     "kwargs": {},
     "body":{}
   },
-  "LeaveAllies": {
-    "event": "leave_allies",
+  "LeaveClan": {
+    "event": "leave_clan",
     "method": "update",
     "kwargs": {},
     "body": {}

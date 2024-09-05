@@ -289,7 +289,7 @@ function GetCityDataForm(props) {
 }
 
 
-function CreateAlliesForm(props) {
+function CreateClanForm(props) {
   const { eventBody } = props
   
   const handleKeyChange = (event) => {
@@ -303,19 +303,19 @@ function CreateAlliesForm(props) {
       <>
         <TextField
           id="name"
-          label="Allies Name"
+          label="Clan Name"
           onChange={handleKeyChange}
         />
         <TextField
           id="symbol"
-          label="Allies Symbol"
+          label="Clan Symbol"
           onChange={handleKeyChange}
         />
       </>
     )
 }
 
-function JoinAlliesForm(props) {
+function JoinClanForm(props) {
   const { eventBody } = props
   
   const handleKeyChange = (event) => {
@@ -326,8 +326,8 @@ function JoinAlliesForm(props) {
     return(
       <>
         <TextField
-          id="allies_id"
-          label="Allies Id"
+          id="clan_id"
+          label="Clan Id"
           onChange={handleKeyChange}
         />
       </>
@@ -378,7 +378,7 @@ function SuperMigrateForm(props) {
 function ChatForm(props) {
   const { eventBody, playersAll } = props
   const playerslist = playersAll.map(player => player.obj_id);
-  const consumers = ["kingdom", "allies"].concat(playerslist)
+  const consumers = ["kingdom", "clan"].concat(playerslist)
 
   const handleConsumerChange = (event) => {
     let consumer = event.target.value
@@ -428,7 +428,7 @@ function ChatForm(props) {
 function ChatListForm(props) {
   const { eventBody, playersAll } = props
   const playerslist = playersAll.map(player => player.obj_id);
-  const consumers = ["kingdom", "alliance"].concat(playerslist)
+  const consumers = ["kingdom", "clan"].concat(playerslist)
 
   const handleConsumerChange = (event) => {
     let consumer = event.target.value
@@ -510,8 +510,8 @@ const SingleEventsForms = {
     "UpdateUsername": UpdateUsernameForm,
     "SearchPlayers": SearchPlayersForm,
     "GetCityData": GetCityDataForm,
-    "CreateAllies": CreateAlliesForm,
-    "JoinAllies": JoinAlliesForm,
+    "CreateClan": CreateClanForm,
+    "JoinClan": JoinClanForm,
     "SuperMigrate": SuperMigrateForm,
     "Chat": ChatForm,
     "ChatList": ChatListForm,
