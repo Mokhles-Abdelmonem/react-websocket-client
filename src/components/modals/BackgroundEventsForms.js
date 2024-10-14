@@ -685,6 +685,38 @@ function DispatchAccelerateForm(props) {
 }
 
 
+function AccelerateByGoldForm(props) {
+  const { eventBody, eventId } = props
+  eventBody.kwargs.event_id = eventId
+  const [goldAmount, setgoldAmount] = React.useState(1);
+
+  const handlePackageChange = (event) => {
+    let gold_amount = event.target.value;
+    eventBody.kwargs.amount = gold_amount;
+    setgoldAmount(gold_amount);
+  };
+
+
+    return(
+      <>
+        <TextField
+          disabled
+          id="eventId"
+          label="Event Id (auto generated)"
+          defaultValue={eventId}
+        />
+        <TextField
+          id="amount"
+          label="amount"
+          type="number"
+          defaultValue="1"
+          onChange={handlePackageChange}
+        />
+      </>
+    )
+}
+
+
 
 const BackgroundEventsForms = {
     "CreateBuilding": CreateBuildingForm,
@@ -697,6 +729,7 @@ const BackgroundEventsForms = {
     "AttackResourceTile": AttackAdversariesForm,
     "Accelerate": AccelerateForm,
     "DispatchAccelerate": DispatchAccelerateForm,
+    "AccelerateByGold": AccelerateByGoldForm,
     "DeleteEvent": DeleteEventForm,
     "CallBack": CallBackForm,
   } 

@@ -12,6 +12,39 @@
       "z": 1
     }
   },
+  "GoldBuilding":{ 
+    "event": "gold_building", 
+    "method": "create", 
+    "kwargs": {
+        "building_type": "farm"
+    }, 
+    "body": {
+        "world_position": {"x": 5, "y": 6, "z": 7}, 
+        "local_scale": {"x": 8, "y": 9, "z": 10},
+        "max_scale": {"x": 11, "y": 12, "z": 13}
+    }
+  },
+  "UpdateGoldBuilding":{ 
+    "event": "gold_building", 
+    "method": "update", 
+    "kwargs": {
+        "building_type": "farm",
+        "key": "1"
+    }, 
+    "body": {
+        "world_position": {"x": 5, "y": 6, "z": 7}, 
+        "local_scale": {"x": 8, "y": 9, "z": 10},
+        "max_scale": {"x": 11, "y": 12, "z": 13}
+    }
+  },
+  "TemporaryBuilder": {
+    "event": "temporary_builder", 
+    "method": "create", 
+    "kwargs": {}, 
+    "body": {
+        "limited_period": 3
+    }
+  },
   "Collect": {
     "method": "update",
     "event": "collect",
@@ -68,6 +101,22 @@
     "method": "update",
     "kwargs": {
       "clan_id": "Lion_Ego_1"
+    },
+    "body": {}
+  },
+  "UpdateClanLeader": {
+    "event": "clan_leader",
+    "method": "update",
+    "kwargs": {
+      "user_id": "123"
+    },
+    "body": {}
+  },
+  "RemoveMemberClan": {
+    "event": "remove_member",
+    "method": "update",
+    "kwargs": {
+      "user_id": "12345"
     },
     "body": {}
   },

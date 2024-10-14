@@ -110,6 +110,15 @@
     },
     "body": {}
   },
+  "AccelerateByGold": {
+    "event": "accelerate_by_gold",
+    "method": "update",
+    "kwargs": {
+      "event_id": "",
+      "amount": 10
+    },
+    "body": {}
+  },
   "DeleteEvent": {
     "event": "event",
     "method": "delete",

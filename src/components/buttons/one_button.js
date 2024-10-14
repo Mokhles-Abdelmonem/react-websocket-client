@@ -17,7 +17,7 @@ export default function DrawerButton({
   const cleanText = text.replace(/ /g, '');
   const Form = FormsAll[cleanText] || null;
 
-  if (["Accelerate", "DeleteEvent", "CallBack", "DispatchAccelerate"].includes(cleanText)) {
+  if (["Accelerate", "DeleteEvent", "CallBack", "DispatchAccelerate", "AccelerateByGold"].includes(cleanText)) {
     color = "#8B0000";
   }
   
